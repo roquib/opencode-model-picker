@@ -1,0 +1,14 @@
+/target
+.omo/
+.codegraph
+*.log
+.env
+.env.*
+.DS_Store
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+*.orig
+*.rej

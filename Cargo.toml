@@ -1,0 +1,21 @@
+[package]
+name = "opencode-model-picker"
+version = "0.1.0"
+edition = "2021"
+description = "Alt+M model picker for opencode — reads ~/.config/usages_limit/models.toml and runs opencode --model"
+rust-version = "1.70"
+license = "MIT"
+repository = "https://github.com/roquib/opencode-model-picker"
+keywords = ["opencode", "model-picker", "fzf", "zsh"]
+categories = ["command-line-utilities"]
+
+[dependencies]
+clap = { version = "4", features = ["derive", "env", "unicode"] }
+clap_complete = "4"
+anyhow = "1"
+dirs = "5"
+serde = { version = "1", features = ["derive"] }
+toml = "0.8"
+chrono = "0.4"
+dialoguer = "0.11"
+
