@@ -266,7 +266,13 @@ fn format_requests(n: Option<u64>) -> String {
 fn build_entries(models: &[ModelUsage], valid: &HashSet<String>, no_validate: bool) -> Vec<Entry> {
     let mut entries = Vec::new();
     for m in models {
-        let slug = slugify(&m.name);
+        // Prefer the authoritative id published by the scraper; fall back to a
+        // slugified display name for hand-written/legacy snapshots.
+        let slug = if m.slug.trim().is_empty() {
+            slugify(&m.name)
+        } else {
+            m.slug.trim().to_string()
+        };
         let candidates: Vec<String> = vec![
             format!("opencode-go/{}", slug),
             format!("opencode/{}-free", slug),
